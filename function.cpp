@@ -11,7 +11,7 @@ typedef char ElementType;
 //get random number function
 vector<char> random_number()
 {
-    vector<char> number = {'a', 'b', 'c', 'd', 'e', 'f', 'g'};
+    vector<char> number = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
     srand((unsigned)time(NULL)); //初始化随机数种子
     for (int i = 0; i < 10; i++)
     {
@@ -54,7 +54,8 @@ TreeNode *createTree()
 {
     char c;
     TreeNode *T = (TreeNode *)malloc(sizeof(TreeNode));
-    scanf("%c", &c);
+//    scanf("%c", &c);
+    cin.get(str, 15);
     if (' ' == c)
     {
         T = NULL;
@@ -98,14 +99,19 @@ void post_order(TreeNode *root)
         post_order(root->right);
     }
 }
-
+char[15] str;
 int main()
 {
     TreeNode *T;
     vector<char> number = random_number2();
-    for (auto e : number)
+    
+//    for (auto e : number)
+//    {
+//        cout << e;
+//    }
+    for (int i = 0; i < 15; i++)
     {
-        cout << e;
+        str[i] = number[i];
     }
     // cout << "\ninput: " << endl;
     T = createTree();
