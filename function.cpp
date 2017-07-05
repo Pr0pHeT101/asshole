@@ -54,8 +54,7 @@ TreeNode *createTree()
 {
     char c;
     TreeNode *T = (TreeNode *)malloc(sizeof(TreeNode));
-//    scanf("%c", &c);
-    cin.get(str, 15);
+    scanf("%c", &c);
     if (' ' == c)
     {
         T = NULL;
@@ -99,19 +98,14 @@ void post_order(TreeNode *root)
         post_order(root->right);
     }
 }
-char[15] str;
+
 int main()
 {
     TreeNode *T;
     vector<char> number = random_number2();
-    
-//    for (auto e : number)
-//    {
-//        cout << e;
-//    }
-    for (int i = 0; i < 15; i++)
+    for (auto e : number)
     {
-        str[i] = number[i];
+        cout << e;
     }
     // cout << "\ninput: " << endl;
     T = createTree();
