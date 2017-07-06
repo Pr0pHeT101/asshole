@@ -15,6 +15,7 @@ struct TreeNode
 	TreeNode *right;
 };
 TreeNode *T;
+vector<char> res_order;
 
 void menu();
 void sub_menu();
@@ -122,6 +123,9 @@ void sub_menu()
 		post_order(T);
 		sub_menu();
 		break;
+	case '4':
+		level_order(T);
+		break;
 	}
 }
 
@@ -175,6 +179,27 @@ void post_order(TreeNode *root)
 		cout << root->data << " ";
 		post_order(root->left);
 		post_order(root->right);
+	}
+}
+
+void level_order(TreeNode *root)
+{
+	queue<TreeNode *> q;
+	TreeNode *node = NULL;
+	q.push(root);
+	while (q.empty() != true)
+	{
+		node = q.front();
+		q.pop();
+		cout << node->data << " " << endl;
+		if (NULL != node->left)
+		{
+			q.push(node->left);
+		}
+		if (NULL != node->right)
+		{
+			q.push(node->right);
+		}
 	}
 }
 int main()
