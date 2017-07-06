@@ -1,5 +1,4 @@
 #include <cstdio>
-#include <queue>
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -58,15 +57,14 @@ TreeNode *createTree(vector<char> number);
 void pre_order(TreeNode *root);
 void in_order(TreeNode *root);
 void post_order(TreeNode *root);
-void level_order(TreeNode *root);
 
 void randtree()
 {
 	vector<char> number = random_number2();
-	for (auto e : number)
-	{
-		cout << e;
-	}
+//	for (auto e : number)
+//	{
+//		cout << e;
+//	}
 	T = createTree(number);
 }
 
@@ -108,34 +106,22 @@ void sub_menu()
 {
 	char choice;
 	system("clear");
-	cout << "\t*************************************\n\n\t\t1、先序遍历二叉树\n\n\t\t2、中序遍历二叉树\n\n\t\t3、后序遍历二叉树\n\n\t\t4、层序遍历二叉树\n\n\t*************************************" << endl;
+	cout << "\t************************************ 1\n\t\t\t\t\t    / \\\n\t\t\t\t\t   2   9\n\t\t1、先序遍历二叉树\t  / \\ / \\\n\t\t\t\t\t 3  6 10 13\n\t\t2、中序遍历二叉树\n\n\t\t3、后序遍历二叉树\n\n\t*************************************" << endl;
 	cin >> choice;
 	switch (choice)
 	{
 	case '1':
-	{
 		pre_order(T);
 		sub_menu();
 		break;
-	}
 	case '2':
-	{
 		in_order(T);
 		sub_menu();
 		break;
-	}
 	case '3':
-	{
 		post_order(T);
 		sub_menu();
 		break;
-	}
-	case '4':
-	{
-		level_order(T);
-		// sub_menu();
-		break;
-	}
 	}
 }
 
@@ -189,27 +175,6 @@ void post_order(TreeNode *root)
 		cout << root->data << " ";
 		post_order(root->left);
 		post_order(root->right);
-	}
-}
-
-void level_order(TreeNode *root)
-{
-	queue<TreeNode *> q;
-	TreeNode *node = NULL;
-	q.push(root);
-	while (q.empty() != true)
-	{
-		node = q.front();
-		q.pop();
-		cout << node->data << " " << endl;
-		if (NULL != node->left)
-		{
-			q.push(node->left);
-		}
-		if (NULL != node->right)
-		{
-			q.push(node->right);
-		}
 	}
 }
 int main()
