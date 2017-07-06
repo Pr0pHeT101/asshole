@@ -8,6 +8,27 @@ using namespace std;
 
 typedef char ElementType;
 
+void level_order(TreeNode *root)
+{
+    queue<TreeNode *> q;
+    TreeNode *node = NULL;
+    q.push(root);
+    while (q.empty() != true)
+    {
+        node = q.front();
+        q.pop();
+        cout << node->data << " " << endl;
+        if (NULL != node->left)
+        {
+            q.push(node->left);
+        }
+        if (NULL != node->right)
+        {
+            q.push(node->right);
+        }
+    }
+}
+
 //get random number function
 vector<char> random_number()
 {
