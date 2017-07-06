@@ -61,10 +61,22 @@ void post_order(TreeNode *root);
 void randtree()
 {
 	vector<char> number = random_number2();
-//	for (auto e : number)
-//	{
-//		cout << e;
-//	}
+	for (auto e : number)
+	{
+		cout << e;
+	}
+	T = createTree(number);
+}
+
+void inputtree()
+{
+	vector<char> number;
+	char c;
+	for (int i = 0; i < 15; i++)
+	{
+		cin>>c;
+		number.push_back(c);
+	}
 	T = createTree(number);
 }
 
@@ -81,6 +93,7 @@ void menu()
 		sub_menu();
 		break;
 	case '2':
+		inputtree();
 		sub_menu();
 		break;
 	default:
