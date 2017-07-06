@@ -4,17 +4,17 @@
 #include <ctime>
 #include <vector>
 
-
 using namespace std;
 typedef char ElementType;
-int i=0;
+int i = 0;
 
 struct TreeNode
 {
 	ElementType data;
 	TreeNode *left;
 	TreeNode *right;
-};TreeNode *T;
+};
+TreeNode *T;
 
 void menu();
 void sub_menu();
@@ -22,7 +22,7 @@ void sub_menu();
 vector<char> random_number()
 {
 	vector<char> number = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
-	srand((unsigned)time(NULL)); 
+	srand((unsigned)time(NULL));
 	for (int i = 0; i < 10; i++)
 	{
 		int index = 1 + rand() % 6;
@@ -70,14 +70,15 @@ void randtree()
 
 void inputtree()
 {
-	vector<char> number;
+	vector<char> number2;
 	char c;
+	getchar();
 	for (int i = 0; i < 15; i++)
 	{
-		cin>>c;
-		number.push_back(c);
+		scanf("%c", &c);
+		number2.push_back(c);
 	}
-	T = createTree(number);
+	T = createTree(number2);
 }
 
 void menu()
@@ -108,17 +109,20 @@ void sub_menu()
 	cout << "\t*************************************\n\n\t\t1、先序遍历二叉树\n\n\t\t2、中序遍历二叉树\n\n\t\t3、后序遍历二叉树\n\n\t*************************************" << endl;
 	cin >> choice;
 	switch (choice)
-		{
-		case '1':pre_order(T);
+	{
+	case '1':
+		pre_order(T);
 		sub_menu();
 		break;
-		case '2':in_order(T);
+	case '2':
+		in_order(T);
 		sub_menu();
 		break;
-		case '3':post_order(T);
+	case '3':
+		post_order(T);
 		sub_menu();
 		break;
-		}
+	}
 }
 
 TreeNode *createTree(vector<char> number)
@@ -180,4 +184,3 @@ int main()
 	menu();
 	return 0;
 }
-
