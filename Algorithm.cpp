@@ -21,11 +21,11 @@ vector<char> res_order;
 int i = 0;
 void menu();
 void sub_menu();
-void pre_order(TreeNode *root);
-void in_order(TreeNode *root);
-void post_order(TreeNode *root);
-void level_order(TreeNode *root);
-void pre_order2(TreeNode *root);
+void pre_order(TreeNode *);
+void in_order(TreeNode *);
+void post_order(TreeNode *);
+void level_order(TreeNode *);
+void pre_order2(TreeNode *);
 
 vector<char> random_number()
 {
@@ -123,7 +123,7 @@ void sub_menu()
 	// {
 	// 	cout << "e: " << e << endl;
 	// }
-	printf("\t************************************ %c\n\t\t\t\t\t    / \\\n\t\t\t\t\t   %c   %c\n\t\t1、先序遍历二叉树\t  / \\ / \\\n\t\t\t\t\t %c  %c %c  %c\n\t\t2、中序遍历二叉树\n\n\t\t3、后序遍历二叉树\n\n\t*************************************\n", res_order[0], res_order[1], res_order[4], res_order[2], res_order[3], res_order[5], res_order[6]);
+	printf("\t************************************ %c\n\t\t\t\t\t    / \\\n\t\t\t\t\t   %c   %c\n\t\t1、先序遍历二叉树\t  / \\ / \\\n\t\t\t\t\t %c  %c %c  %c\n\t\t2、中序遍历二叉树\n\n\t\t3、后序遍历二叉树\n\n\t\t4、层序遍历二叉树\n\n\t*************************************\n", res_order[0], res_order[1], res_order[4], res_order[2], res_order[3], res_order[5], res_order[6]);
 	cin >> choice;
 	switch (choice)
 	{
@@ -150,6 +150,7 @@ void sub_menu()
 	case '4':
 	{
 		level_order(T);
+		sub_menu();
 		break;
 	}
 	}
@@ -232,8 +233,8 @@ void level_order(TreeNode *root)
 	{
 		node = q.front();
 		q.pop();
-		// cout << node->data << " " << endl;
-		res_order.push_back(node->data);
+		cout << node->data << " " << endl;
+		// res_order.push_back(node->data);
 		if (NULL != node->left)
 		{
 			q.push(node->left);
