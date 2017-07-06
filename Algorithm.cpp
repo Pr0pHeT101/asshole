@@ -233,7 +233,8 @@ void level_order(TreeNode *root)
 	{
 		node = q.front();
 		q.pop();
-		cout << node->data << " " << endl;
+		getchar();
+		cout << node->data;
 		// res_order.push_back(node->data);
 		if (NULL != node->left)
 		{
