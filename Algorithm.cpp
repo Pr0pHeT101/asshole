@@ -14,15 +14,10 @@ struct TreeNode
 	ElementType data;
 	TreeNode *left;
 	TreeNode *right;
-};
-TreeNode *T;
+};TreeNode *T;
 
 void menu();
 void sub_menu();
-void pre_order(TreeNode *root);
-void in_order(TreeNode *root);
-void post_order(TreeNode *root);
-
 
 vector<char> random_number()
 {
@@ -59,15 +54,17 @@ vector<char> random_number2()
 }
 
 TreeNode *createTree(vector<char> number);
+void pre_order(TreeNode *root);
+void in_order(TreeNode *root);
+void post_order(TreeNode *root);
 
 void randtree()
 {
-	TreeNode *T;
 	vector<char> number = random_number2();
-	for (auto e : number)
-	{
-		cout << e;
-	}
+//	for (auto e : number)
+//	{
+//		cout << e;
+//	}
 	T = createTree(number);
 }
 
@@ -100,13 +97,16 @@ void sub_menu()
 	switch (choice)
 		{
 		case '1':pre_order(T);
+		sub_menu();
 		break;
 		case '2':in_order(T);
+		sub_menu();
 		break;
 		case '3':post_order(T);
+		sub_menu();
 		break;
+		}
 }
-
 
 TreeNode *createTree(vector<char> number)
 {
@@ -132,6 +132,7 @@ void pre_order(TreeNode *root)
 {
 	if (root != NULL)
 	{
+		getchar();
 		cout << root->data << " ";
 		pre_order(root->left);
 		pre_order(root->right);
@@ -143,6 +144,7 @@ void in_order(TreeNode *root)
 	if (root != NULL)
 	{
 		in_order(root->left);
+		getchar();
 		cout << root->data << " ";
 		in_order(root->right);
 	}
@@ -152,6 +154,7 @@ void post_order(TreeNode *root)
 {
 	if (root != NULL)
 	{
+		getchar();
 		cout << root->data << " ";
 		post_order(root->left);
 		post_order(root->right);

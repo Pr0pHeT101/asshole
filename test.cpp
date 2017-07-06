@@ -76,6 +76,7 @@ void pre_order(TreeNode *root)
     if (root != NULL)
     {
         cout << root->data << " ";
+        getchar();
         pre_order(root->left);
         pre_order(root->right);
     }
@@ -111,12 +112,12 @@ int main()
     }
     // cout << "\ninput: " << endl;
     T = createTree(number);
-    cout << "ǰ������� " << endl;
+    cout << "«∞–Ú±È¿˙£∫ " << endl;
     pre_order(T);
     cout 
-	<< "\n��������� " << endl;
+	<< "\n÷––Ú±È¿˙£∫ " << endl;
     in_order(T);
-    cout << "\n��������� " << endl;
+    cout << "\n∫Û–Ú±È¿˙£∫ " << endl;
     post_order(T);
     cout << endl;
     return 0;
