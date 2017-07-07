@@ -97,14 +97,12 @@ void menu()
 	{
 		randtree();
 		sub_menu();
-		system("clear");
 		break;
 	}
 	case '2':
 	{
 		inputtree();
 		sub_menu();
-		system("clear");
 		break;
 	}
 	default:
@@ -113,9 +111,11 @@ void menu()
 		menu();
 	}
 	}
+	
 }
 void sub_menu()
 {
+	system("clear");
 	char choice;
 	pre_order(T);
 	// cout << "***" << endl;
@@ -131,25 +131,30 @@ void sub_menu()
 	case '1':
 	{
 		pre_order2(T);
+		getchar();
 		sub_menu();
-		system("clear");
+		
 		break;
+		
 	}
 	case '2':
 	{
 		in_order(T);
+		getchar();
 		sub_menu();
 		break;
 	}
 	case '3':
 	{
 		post_order(T);
+		getchar();
 		sub_menu();
 		break;
 	}
 	case '4':
 	{
 		level_order(T);
+		getchar();
 		sub_menu();
 		break;
 	}
@@ -193,7 +198,7 @@ void pre_order2(TreeNode *root)
 	if (root != NULL)
 	{
 		getchar();
-		cout << root->data << " ";
+		cout << "\t节点依次是:" << root->data;
 		// res_order.push_back(root->data);
 		pre_order2(root->left);
 		pre_order2(root->right);
@@ -206,7 +211,7 @@ void in_order(TreeNode *root)
 	{
 		in_order(root->left);
 		getchar();
-		cout << root->data << " ";
+		cout << "\t节点依次是:" << root->data;
 		// res_order.push_back(root->data);
 		in_order(root->right);
 	}
@@ -217,7 +222,7 @@ void post_order(TreeNode *root)
 	if (root != NULL)
 	{
 		getchar();
-		cout << root->data << " ";
+		cout << "\t节点依次是:" << root->data;
 		// res_order.push_back(root->data);
 		post_order(root->left);
 		post_order(root->right);
@@ -234,7 +239,7 @@ void level_order(TreeNode *root)
 		node = q.front();
 		q.pop();
 		getchar();
-		cout << node->data;
+		cout << "\t节点依次是:" << node->data;
 		// res_order.push_back(node->data);
 		if (NULL != node->left)
 		{
@@ -250,6 +255,7 @@ int main()
 {
 	cout << "\t*************************************\n\n\t\t********欢迎********\n\n\t*************************************" << endl;
 	getchar();
+	system("clear");
 	menu();
 	return 0;
 }
